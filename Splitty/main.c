@@ -3,6 +3,7 @@
 #include <stdbool.h>
 
 const int MAXIMUM_PARTICIPANTS = 5;
+const int MAXIMUM_PARTICIPANT_NAME_LENGTH = 50;
 
 
 int getNumberOfParticipants() {
@@ -25,11 +26,15 @@ int getNumberOfParticipants() {
     return numberOfParticipants;
 }
 
-void requestParticipantNames(int numberOfParticipants, char (*participantsNames)[50]) {
+void requestParticipantNames(int numberOfParticipants, char (*participantsNames)[MAXIMUM_PARTICIPANT_NAME_LENGTH]) {
     for (int i = 0; i < numberOfParticipants; i++) {
-      char participant[50];
+      char participant[MAXIMUM_PARTICIPANT_NAME_LENGTH];
+
+      char scanfInputMask[10];
+      snprintf(scanfInputMask, 10, "%%%ds", MAXIMUM_PARTICIPANT_NAME_LENGTH-1);
+
       printf("Please enter Participant number %d name: ", i + 1);
-      scanf("%49s",participant);
+      scanf(scanfInputMask,participant);
       strcpy(participantsNames[i], participant);
     }
 }
@@ -38,7 +43,7 @@ void requestParticipantNames(int numberOfParticipants, char (*participantsNames)
 int main(void) {
     printf("\t Splitty, Your Journey Friend!\t\n");
 
-    char participantsNames[MAXIMUM_PARTICIPANTS][50];
+    char participantsNames[MAXIMUM_PARTICIPANTS][MAXIMUM_PARTICIPANT_NAME_LENGTH];
     int numberOfParticipants = getNumberOfParticipants();
     requestParticipantNames(numberOfParticipants, participantsNames);
     
