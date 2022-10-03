@@ -2,8 +2,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define MAXIMUM_PARTICIPANTS 5
-#define MAXIMUM_PARTICIPANT_NAME_LENGTH 50
+const int MAXIMUM_PARTICIPANTS = 5;
+const int MAXIMUM_PARTICIPANT_NAME_LENGTH = 50;
 
 int getNumberOfParticipants() {
     int numberOfParticipants;
