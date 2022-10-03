@@ -5,7 +5,6 @@
 #define MAXIMUM_PARTICIPANTS 5
 #define MAXIMUM_PARTICIPANT_NAME_LENGTH 50
 
-
 int getNumberOfParticipants() {
     int numberOfParticipants;
     do {
@@ -38,7 +37,6 @@ void requestParticipantNames(int numberOfParticipants, char (*participantsNames)
       strcpy(participantsNames[i], participant);
     }
 }
-
 
 int main(void) {
     printf("\t Splitty, Your Journey Friend!\t\n");
